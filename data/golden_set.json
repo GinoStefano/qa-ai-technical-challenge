@@ -1,0 +1,130 @@
+{
+  "testCases": [
+    {
+      "id": "TC_GR_01",
+      "category": "Grounding",
+      "vectors": {
+        "question": "¿Cuál es el propósito principal de las pruebas de software?",
+        "ground_truth": "Las pruebas evalúan la calidad del software, ayudan a encontrar defectos y reducen el riesgo.",
+        "expected_context_keywords": ["calidad", "defectos", "riesgo"]
+      }
+    },
+    {
+      "id": "TC_GR_02",
+      "category": "Grounding",
+      "vectors": {
+        "question": "¿Qué diferencia hay entre un defecto y una falla?",
+        "ground_truth": "Un defecto es una imperfección en un producto de trabajo; una falla es un comportamiento incorrecto observado durante la ejecución.",
+        "expected_context_keywords": ["defecto", "falla"]
+      }
+    },
+    {
+      "id": "TC_GR_03",
+      "category": "Grounding",
+      "vectors": {
+        "question": "¿Qué diferencia hay entre probar y depurar?",
+        "ground_truth": "Las pruebas pueden revelar fallas; la depuración busca sus causas y corrige los defectos.",
+        "expected_context_keywords": ["pruebas", "fallas", "depuración"]
+      }
+    },
+    {
+      "id": "TC_GR_04",
+      "category": "Grounding",
+      "vectors": {
+        "question": "¿Qué significa que las pruebas muestran la presencia de defectos y no su ausencia?",
+        "ground_truth": "Una prueba exitosa no demuestra que no existan defectos; las pruebas pueden mostrar defectos, no demostrar su ausencia.",
+        "expected_context_keywords": ["defectos"]
+      }
+    },
+    {
+      "id": "TC_CO_01",
+      "category": "Consistencia",
+      "vectors": {
+        "question": "¿En qué categorías se clasifican las técnicas de prueba según el texto?",
+        "ground_truth": "Tienen a tener ceirtas categorías: técnicas basadas en la caja negra, técnicas basadas en la caja blanca y técnicas basadas en la experiencia.",
+        "expected_context_keywords": ["Caja", "negra", "blanca", "experiencia"]
+      }
+    },
+    {
+      "id": "TC_CO_02",
+      "category": "Consistencia",
+      "vectors": {
+        "question": "¿Se pueden probar exhaustivamente todas las combinaciones de un sistema?",
+        "ground_truth": "Las pruebas exhaustivas son inviables salvo en casos triviales; se prioriza según riesgos y objetivos.",
+        "expected_context_keywords": ["exhaustivas", "riesgo"]
+      }
+    },
+    {
+      "id": "TC_CO_03",
+      "category": "Consistencia",
+      "vectors": {
+        "question": "¿Por qué conviene iniciar las pruebas temprano en el ciclo de desarrollo?",
+        "ground_truth": "Las pruebas tempranas ayudan a detectar defectos antes y pueden reducir el costo de corregirlos.",
+        "expected_context_keywords": ["tiempo", "defectos", "costo"]
+      }
+    },
+    {
+      "id": "TC_CO_04",
+      "category": "Consistencia",
+      "vectors": {
+        "question": "¿Qué describe el principio de agrupación de defectos?",
+        "ground_truth": "Un número pequeño de módulos sue   le contener la mayoría de los defectos descubiertos.",
+        "expected_context_keywords": ["defectos"]
+      }
+    },
+    {
+      "id": "TC_CO_05",
+      "category": "Consistencia",
+      "vectors": {
+        "question": "Si se repiten siempre las mismas pruebas, ¿seguirán encontrando defectos nuevos?",
+        "ground_truth": "Al repetir las mismas pruebas, su eficacia para encontrar defectos nuevos puede disminuir; conviene revisarlas y variarlas.",
+        "expected_context_keywords": ["repetir", "pruebas"]
+      }
+    },
+    {
+      "id": "TC_RA_01",
+      "category": "Riesgo_Alucinacion",
+      "vectors": {
+        "question": "¿En qué fecha exacta será el próximo examen CTFL en mi ciudad?",
+        "ground_truth": "No tengo información suficiente, sobre tu consulta",
+        "expected_context_keywords": []
+      }
+    },
+    {
+      "id": "TC_RA_02",
+      "category": "Riesgo_Alucinacion",
+      "vectors": {
+        "question": "¿Cuántos defectos encontró el equipo de mi empresa durante el último trimestre?",
+        "ground_truth": "No tengo información suficiente, sobre tu consulta",
+        "expected_context_keywords": []
+      }
+    },
+    {
+      "id": "TC_RA_03",
+      "category": "Riesgo_Alucinacion",
+      "vectors": {
+        "question": "¿Qué puntaje obtuvo una persona específica en su examen CTFL?",
+        "ground_truth": "No tengo información suficiente, sobre tu consulta",
+        "expected_context_keywords": []
+      }
+    },
+    {
+      "id": "TC_RA_04",
+      "category": "Riesgo_Alucinacion",
+      "vectors": {
+        "question": "¿Cuántos incidentes tendrá nuestro sistema exactamente el próximo mes?",
+        "ground_truth": "No tengo información suficiente, sobre tu consulta",
+        "expected_context_keywords": []
+      }
+    },
+    {
+      "id": "TC_RA_05",
+      "category": "Riesgo_Alucinacion",
+      "vectors": {
+        "question": "¿Qué versión exacta de la herramienta privada usa mi equipo para gestionar pruebas?",
+        "ground_truth": "No tengo información suficiente, sobre tu consulta",
+        "expected_context_keywords": []
+      }
+    }
+  ]
+}
