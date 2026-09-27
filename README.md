@@ -14,7 +14,7 @@ Playwright Test ejecuta las pruebas de API mediante su contexto `request`. Los e
 
 - Node.js 20 o superior y npm.
 - Acceso al endpoint de Dify y una clave de API.
-- Archivo local `.env` con `DIFY_BASE_URL` y `DIFY_API_KEY`. `DIFY_USER` es opcional.
+- Archivo local `.env` con `DIFY_API_KEY` es opcional.
 
 Por motivos de seguridad, el archivo .env no está en el repositorio. Si eres el evaluador, por favor solicítamelo vía correo electrónico para poder ejecutar las pruebas en local.
 
@@ -49,7 +49,7 @@ npm run typecheck
 
 ## Integración Continua (CI/CD)
 
-El workflow `.github/workflows/playwright.yml` corre en `push` y `pull_request` dirigidos a `main`. Instala dependencias, genera los tests Gherkin y ejecuta los escenarios etiquetados `@regresion`. La clave `DIFY_API_KEY` se inyecta desde GitHub Secrets y el reporte HTML se publica como artefacto incluso cuando hay fallos.
+El workflow `.github/workflows/playwright.yml` corre en `push` y `pull_request` dirigidos a `master`. Instala dependencias, genera los tests Gherkin y ejecuta los escenarios etiquetados `@regresion`. La clave `DIFY_API_KEY` se inyecta desde GitHub Secrets y el reporte HTML se publica como artefacto incluso cuando hay fallos.
 
 ## Estrategia QA y Hallazgos
 
@@ -67,8 +67,6 @@ El workflow `.github/workflows/playwright.yml` corre en `push` y `pull_request` 
 | Tasa de grounding con evidencia | Casos Grounding/Consistencia con al menos un fragmento recuperado / casos de esas categorías | Mide presencia de contexto recuperado; no es por sí sola una evaluación semántica de relevancia. |
 | Tasa de fallback | Casos cuya respuesta normalizada coincide exactamente con el ground truth / casos medidos | Mide la activación del fallback configurado. |
 | Latencia | Promedio y p95 de la duración total del test, en milisegundos | Incluye el flujo del test, no solo el tiempo del endpoint. |
-
-Las métricas se calculan en cada ejecución y se imprimen en consola; no se fija aquí un porcentaje histórico que pueda quedar desactualizado.
 
 **Propuestas de mejora**
 
