@@ -13,8 +13,17 @@ Playwright Test ejecuta las pruebas de API mediante su contexto `request`. Los e
 ## Requisitos Previos y .env
 
 - Node.js 20 o superior y npm.
-- Acceso al endpoint de Dify y una clave de API.
-- Archivo local `.env` con `DIFY_API_KEY` es opcional.
+- `DIFY_API_KEY` para consultar el agente RAG.
+- `GEMINI_API_KEY` para ejecutar la evaluación `LLM-as-a-Judge`.
+- `GEMINI_MODEL` selecciona el modelo del juez. Si se omite, el código usa `gemini-2.5-flash`.
+
+Configura estas variables en un archivo `.env` local:
+
+```dotenv
+DIFY_API_KEY=tu-clave-de-dify
+GEMINI_API_KEY=tu-clave-de-gemini
+GEMINI_MODEL=gemini-2.5-flash
+```
 
 Por motivos de seguridad, el archivo .env no está en el repositorio. Si eres el evaluador, por favor solicítamelo vía correo electrónico para poder ejecutar las pruebas en local.
 
@@ -40,6 +49,27 @@ Ejecutar únicamente los casos de regresión o de seguridad:
 npx playwright test --grep "@regresion"
 npx playwright test --grep "@seguridad"
 ```
+
+### Modos de evaluación
+
+- **Keywords/contexto (`@regresion`):** valida las palabras clave esperadas y la evidencia recuperada definidas en los casos de prueba.
+- **Juez semántico (`@llm`):** compara la respuesta real del agente con el contexto de referencia y exige una puntuación mínima de 8.
+
+Genera las pruebas BDD cuando cambies los features. Para evaluación por keywords/contexto:
+
+```powershell
+npx bddgen
+npx playwright test --grep "@regresion"
+```
+
+Para evaluación semántica con LLM:
+
+```powershell
+npx bddgen
+npx playwright test features/llm_judge_evaluation.feature --grep "@llm"
+```
+
+Al finalizar la ejecución, Playwright abre automáticamente el reporte HTML con el resultado y los adjuntos de auditoría.
 
 El script `npm test` genera los tests BDD y ejecuta toda la suite. Para validar tipos sin invocar el servicio:
 
